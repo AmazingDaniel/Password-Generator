@@ -1,11 +1,14 @@
 *,
-
+*::before
 *::after {
   box-sizing: border-box;
+}ZZ
+
+
+body {
+  font-family: sans-serif;
+  background-color: #f9fbfd;
 }
-
-
-body,
 .wrapper {
   height: 100%;
   margin: 0;
@@ -22,10 +25,6 @@ header {
   color: hsl(206, 17%, 28%);
 }
 
-body {
-  font-family: sans-serif;
-  background-color: #f9fbfd;
-}
 
 .card {
   background-color: hsl(0, 0%, 100%);
