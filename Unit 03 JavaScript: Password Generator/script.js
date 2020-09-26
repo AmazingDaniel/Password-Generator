@@ -1,14 +1,14 @@
 // DOM Elements
-const generatedEl = document.getElementById("generated")
-const resultEl = document.getElementById("result")
-const lengthEl = document.getElementById("length")
-const uppercaseEl = document.getElementById("uppercase")
-const lowercaseEl = document.getElementById("lowercase")
-const numbersEl = document.getElementById("numbers")
-const symbolsEl = document.getElementById("symbols")
+var generatedEl = document.getElementById("generated")
+var resultEl = document.getElementById("password")
+var lengthEl = document.getElementById("length")
+var uppercaseEl = document.getElementById("uppercase")
+var lowercaseEl = document.getElementById("lowercase")
+var numbersEl = document.getElementById("numbers")
+var symbolsEl = document.getElementById("symbols")
 
 
-const randomFunc ={
+var randomFunc ={
     lower: getRandomLower,
     upper: getRandomUpper,
     number: getRandomNumber,
@@ -17,11 +17,11 @@ const randomFunc ={
 
 // Generate Event Listen
 generatedEl.addEventListener("click", () => {
-    const length = +lengthEl.value;
-    const hasLower = lowercaseEl.checked;
-    const hasUpper = uppercaseEl.checked;
-    const hasNumber = numbersEl.checked;
-    const hasSymbol = symbolsEl.checked;
+    var length = +lengthEl.value;
+    var hasLower = lowercaseEl.checked;
+    var hasUpper = uppercaseEl.checked;
+    var hasNumber = numbersEl.checked;
+    var hasSymbol = symbolsEl.checked;
 
     resultEl.innerText = generatedPassword(
         hasLower, 
@@ -36,11 +36,11 @@ generatedEl.addEventListener("click", () => {
 function generatedPassword(lower, upper, number, symbol, length) {
     let generatedPassword = "";
 
-    const typesCount = upper + lower + number + symbol;
+    var typesCount = upper + lower + number + symbol;
 
     //console.log("typesCount: ", typesCount);
 
-    const typesArr = [{ upper }, { lower }, { number }, { symbol }].filter 
+    var typesArr = [{ upper }, { lower }, { number }, { symbol }].filter 
     (
         item => Object.values(item)[0]
     );
@@ -59,7 +59,7 @@ function generatedPassword(lower, upper, number, symbol, length) {
             generatedPassword += randomFunc[funcName]();
         });
     }
-    const finalPassword = generatedPassword.slice(0, length);
+    var finalPassword = generatedPassword.slice(0, length);
 
     return finalPassword;
 }
@@ -79,6 +79,6 @@ function getRandomLower() {
   }
   
   function getRandomSymbol() {
-    const symbols = ",./<>?;'[]{}=-+_)(*&^%$#@!";
+    var symbols = ",./<>?;'[]{}=-+_)(*&^%$#@!";
     return symbols [Math.floor(Math.random() * symbols.length)];
   }
